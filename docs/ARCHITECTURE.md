@@ -1,6 +1,8 @@
 # Architecture Overview
 
-This project demonstrates a self-hosted workflow that also runs on the AWS free tier. The services are containerised and orchestrated with Docker Compose by default, with optional Terraform modules for AWS deployment. Local development uses LocalStack and Redpanda to avoid any cloud dependencies.
+
+This project demonstrates a self-hosted workflow. The services are containerised and orchestrated with Docker Compose and run entirely offline with no cloud dependencies.
+
 
 ```
 .

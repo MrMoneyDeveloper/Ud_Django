@@ -1,8 +1,10 @@
 # PriorAuth-Flow
 
-PriorAuth-Flow is a demo project showing how to build a small prior authorization workflow with Django. It is designed so recruiters can run everything either locally via Docker Compose or on the AWS free tier.
 
-The stack follows a layered architecture and keeps domain code independent from infrastructure. Local development uses LocalStack, Redpanda and Docker to avoid any paid services.
+PriorAuth-Flow is a demo project showing how to build a small prior authorization workflow with Django. Everything runs locally with no cloud dependencies.
+
+The stack follows a layered architecture and keeps domain code independent from infrastructure. Development uses only local services so you can run the project completely offline.
+
 
 Security settings enforce input validation and safe defaults:
 
@@ -25,7 +27,9 @@ priorauth_flow/
     tests/               # unit tests
 ```
 
-Currently the repository provides a small core with a single service and a unit test. Future updates will expand the data generation scripts and infrastructure modules so the project can be deployed fully offline or to AWS.
+
+Currently the repository provides a small core with a single service and a unit test. Future updates will expand the data generation scripts and infrastructure modules while keeping everything runnable on a laptop.
+
 
 ## Running the ingestion service
 
@@ -39,7 +43,20 @@ uvicorn ingestion.adapters.main:app --reload --limit-max-requests 1000
 Using the `--limit-max-requests` flag ensures long-lived processes are
 recycled, which helps keep memory usage predictable during demos.
 
-## Firmware size tools
+
+## Running the Django server
+
+For a local demo of the web application, start the built-in server:
+
+```bash
+python priorauth_flow/manage.py runserver 8000
+```
+
+These commands require only Python 3.12 and the dependencies from
+`requirements.txt`.
+
+
+
 
 The project includes helper Makefile targets for inspecting firmware images.
 
