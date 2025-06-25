@@ -1,6 +1,8 @@
 # Architecture Overview
 
+
 This project demonstrates a self-hosted workflow. The services are containerised and orchestrated with Docker Compose and run entirely offline with no cloud dependencies.
+
 
 ```
 .
